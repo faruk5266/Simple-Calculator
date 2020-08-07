@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+
+    <style>
+        body{
+            background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+        }
+    .button {
+        box-shadow: 0px 10px 14px -7px #276873;
+        background: linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
+        background-color: #599bb3;
+        border-radius: 4px;
+        border: 1px solid #29668f;
+        display: inline-block;
+        cursor: pointer;
+        color: #ffffff;
+        font-family: Arial;
+        font-size: 25px;
+        font-weight: bold;
+        padding: 21px 6px;
+        text-decoration: none;
+        text-shadow: 0px 1px 0px #3d768a;
+        height: 50px;
+        width: 80px;
+        padding: 0px;
+    }
+    .button:hover {
+        background:linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
+        background-color:#408c99;
+    }
+    form>input{
+        height: 40px;
+        width: 329px;
+        border-radius: 4px;
+        border: none;
+        margin-left: 500px;
+        font-size: 30px;
+    }
+    table{
+        margin-left: 500px;                       
+    }
+    </style>
+
+
+
+
+
+</head>
+<body>
+
+    <div id="main">
+
+        <form name="form">
+            <input name="textview" disabled> 
+        </form>
+            <table>
+                
+                <tr>
+                    <td><input type="button" class="button" value="7" onClick="insert(7)"></td>
+                    <td><input type="button" class="button" value="8" onClick="insert(8)"></td>
+                    <td><input type="button" class="button" value="9" onClick="insert(9)"></td>
+                    <td><input type="button" class="button" value="/" onClick="insert('/')"></td>
+
+                </tr>
+                <tr>
+                    <td><input type="button" class="button" value="4" onClick="insert(4)"></td>
+                    <td><input type="button" class="button" value="5" onClick="insert(5)"></td>
+                    <td><input type="button" class="button" value="6" onClick="insert(6)"></td>
+                    <td><input type="button" class="button" value="-" onClick="insert('-')"></td>
+
+                </tr>
+                <tr>
+                    <td><input type="button" class="button" value="1" onClick="insert(1)"></td>
+                    <td><input type="button" class="button" value="2" onClick="insert(2)"></td>
+                    <td><input type="button" class="button" value="3" onClick="insert(3)"></td>
+                    <td><input type="button" class="button" value="+" onClick="insert('+')"></td>
+
+                </tr>
+                <tr>
+                    <td><input type="button" class="button" value="0" onClick="insert(0)"></td>
+                    <td><input type="button" class="button" value="." onClick="insert('.')"></td>
+                    <td><input type="button" class="button" value="=" onClick="equal('=')"></td>
+                    <td><input type="button" class="button" value="*" onClick="insert('*')"></td>
+
+                </tr>
+
+                <tr>
+                    <td><input type="button" class="button" value="Clear" onClick="c()"></td>
+                    <td><input type="button" class="button" value="C" onclick="slice(0, -1)"></td>
+                </tr>
+            </table>
+            
+
+    </div>
+
+    <script>
+        function insert(num){
+            document.form.textview.value = document.form.textview.value+num;
+        }
+        function equal(){
+            let exp = document.form.textview.value;
+            if(exp){
+                document.form.textview.value = eval(exp)
+            }
+            else{
+                console.log('Something Wrong')
+            }
+        }
+        function c(){
+            document.form.textview.value = null;
+        }
+        function slice(){
+            document.form.textview.value = document.form.textview.value.slice(0, -1);
+        }
+        
+    </script>
+
+</body>
+</html>
